@@ -1,4 +1,5 @@
 import datastruct.ListQueue;
+import datastructservices.Queueable;
 import model.Book;
 import model.Library;
 import people.Person;
@@ -16,7 +17,7 @@ public class LibrarySystemDemo {
     private static Library libSystem = new Library();
     private static  Scanner scan = new Scanner(System.in);
     private static boolean isRunning = true;
-    private static Queue <? extends User> normalqueue = new ListQueue<>();
+    private static Queueable<? extends User> normalqueue = new ListQueue<>();
 
 
     public static void main(String[] args) {
@@ -32,16 +33,16 @@ public class LibrarySystemDemo {
 
     private static void loadLibraryUsers() {
         Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user1 = new Teacher("Henry", "Obi");
+        Person user2 = new Teacher("Henry", "Obi");
+        Person user3 = new Teacher("Henry", "Obi");
+        Person user4 = new Teacher("Henry", "Obi");
+        Person user5 = new Teacher("Henry", "Obi");
+        Person user6 = new Teacher("Henry", "Obi");
+        Person user7 = new Teacher("Henry", "Obi");
+        Person user8 = new Teacher("Henry", "Obi");
+        Person user9 = new Teacher("Henry", "Obi");
+        Person user10 = new Teacher("Henry", "Obi");
+        Person user11 = new Teacher("Henry", "Obi");
 
 
 
