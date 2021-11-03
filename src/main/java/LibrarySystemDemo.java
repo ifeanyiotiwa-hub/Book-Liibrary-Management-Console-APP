@@ -2,9 +2,7 @@ import datastruct.ListQueue;
 import datastructservices.Queueable;
 import model.Book;
 import model.Library;
-import people.Person;
-import people.Teacher;
-import people.User;
+import people.*;
 
 import java.io.*;
 import java.util.Iterator;
@@ -17,7 +15,7 @@ public class LibrarySystemDemo {
     private static Library libSystem = new Library();
     private static  Scanner scan = new Scanner(System.in);
     private static boolean isRunning = true;
-    private static Queueable<? extends User> normalqueue = new ListQueue<>();
+    private static Queueable<Person> normalqueue = new ListQueue<>();
 
 
     public static void main(String[] args) {
@@ -29,20 +27,38 @@ public class LibrarySystemDemo {
 
         loadLibraryUsers();
 
+        System.out.println("List of user that requested for \n\n" + Library.Librarian.getBookShelf().get(0));
+        System.out.println("========================================================");
+        System.out.println("\nBook would be given in this order For Normal Queue\n");
+        System.out.println("========================================================");
+        System.out.println(normalqueue.toString());
+
     }
 
     private static void loadLibraryUsers() {
-        Person user1 = new Teacher("Henry", "Obi");
-        Person user2 = new Teacher("Henry", "Obi");
-        Person user3 = new Teacher("Henry", "Obi");
-        Person user4 = new Teacher("Henry", "Obi");
-        Person user5 = new Teacher("Henry", "Obi");
-        Person user6 = new Teacher("Henry", "Obi");
-        Person user7 = new Teacher("Henry", "Obi");
-        Person user8 = new Teacher("Henry", "Obi");
-        Person user9 = new Teacher("Henry", "Obi");
-        Person user10 = new Teacher("Henry", "Obi");
-        Person user11 = new Teacher("Henry", "Obi");
+        Person user1 = new Teacher("Tenry1", "Opbi");
+        normalqueue.add(user1);
+        Person user2 = new SnrStudent("Senry1", "Fanbi");
+        normalqueue.add(user2);
+        Person user3 = new JnrStudent("Jenry1", "Throbi");
+        normalqueue.add(user3);
+        Person user4 = new Teacher("Tenry2", "Mebi");
+        normalqueue.add(user4);
+        Person user5 = new SnrStudent("Senry2", "Pebi");
+        normalqueue.add(user5);
+        Person user6 = new JnrStudent("Jenry2", "Tobi");
+        normalqueue.add(user6);
+        Person user7 = new JnrStudent("Jenry3", "Sobi");
+        normalqueue.add(user7);
+        Person user8 = new JnrStudent("Jenry4", "Mobi");
+        normalqueue.add(user8);
+        Person user9 = new Teacher("Tenry3", "Nobi");
+        normalqueue.add(user9);
+        Person user10 = new SnrStudent("Senry3", "Pobi");
+        normalqueue.add(user10);
+        Person user11 = new JnrStudent("Jenry5", "Tobi");
+        normalqueue.add(user11);
+
 
 
 

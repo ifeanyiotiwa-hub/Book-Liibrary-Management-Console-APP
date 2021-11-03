@@ -12,7 +12,7 @@ public class JnrStudent extends User{
         super();
     }
 
-    public JnrStudent(String fName, String lName, List<Book> borrowedBookList) {
+    public JnrStudent(String fName, String lName) {
         super(fName, lName);
         this.setRole(UserType.JNR_STUDENT);
     }

@@ -6,6 +6,6 @@ public interface Queueable<T> {
     T element();
      boolean offer(T value);
     T peek();
-    T pool();
+    T poll();
     T remove();
 }

@@ -49,12 +49,31 @@ public class ListQueue<T> implements Queueable<T> {
     }
 
     @Override
-    public T pool() {
-        return null;
+    public T poll() {
+        if(data.isEmpty()){
+            throw new NullPointerException("Queue is empty");
+        }
+        else{
+            size--;
+            return data.remove(0);
+        }
+    }
+
+    @Override
+    public String toString() {
+        System.out.println("\nCurrent Normal Queue\n" +
+                "List: \n");
+        for(int i = 0; i < data.size(); i++)
+            System.out.println(data.get(i).toString());
+        return "\n";
     }
 
     @Override
     public T remove() {
-        return null;
+        if(data.isEmpty()){
+            throw new IndexOutOfBoundsException("Cannot remove element because queue is empty");
+        }
+        size--;
+        return data.remove(0);
     }
 }

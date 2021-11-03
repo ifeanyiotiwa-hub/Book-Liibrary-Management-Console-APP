@@ -12,8 +12,8 @@ public class SnrStudent extends User implements BookLender {
         super();
     }
 
-    public SnrStudent(String fName, String lName, List<Book> borrowedBookList) {
-        super(fName, lName, borrowedBookList);
+    public SnrStudent(String fName, String lName) {
+        super(fName, lName);
         this.setRole(UserType.SNR_STUDENT);
     }
 
