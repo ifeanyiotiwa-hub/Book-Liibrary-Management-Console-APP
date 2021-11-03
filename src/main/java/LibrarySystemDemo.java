@@ -42,9 +42,14 @@ public class LibrarySystemDemo {
         System.out.println("\nBook would be given in this order For Priority Queue\n");
         System.out.println("========================================================");
 
-        printList(List<Person> list);
+        printList();
         System.out.println(priorityQueue.toString());
 
+    }
+
+    private static void printList() {
+        for(int i = 0; i < priorityQueue.size(); i++)
+            System.out.println(priorityQueue.get(i).toString());
     }
 
     private static void loadLibraryUsers() {
