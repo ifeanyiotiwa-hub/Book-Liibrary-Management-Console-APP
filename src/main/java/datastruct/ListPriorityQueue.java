@@ -4,6 +4,7 @@ import datastructservices.Queueable;
 import people.Person;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -71,6 +72,8 @@ public class ListPriorityQueue<T> implements Queueable<T>, Comparator<Person> {
         size--;
         return data.remove(0);
     }
+
+
 
     @Override
     public String toString() {
