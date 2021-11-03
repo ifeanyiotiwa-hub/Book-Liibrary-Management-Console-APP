@@ -4,6 +4,7 @@ import datastructservices.Queueable;
 import model.Book;
 import model.Library;
 import people.*;
+import services.CustomComparator;
 
 import java.io.*;
 import java.util.*;
@@ -14,7 +15,7 @@ public class LibrarySystemDemo {
     private static  Scanner scan = new Scanner(System.in);
     private static boolean isRunning = true;
     private static Queueable<Person> normalqueue = new ListQueue<>();
-    private static ListPriorityQueue<Person> priorityQueue = new ListPriorityQueue<>();
+    private static ArrayList<Person> priorityQueue = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -83,6 +84,7 @@ public class LibrarySystemDemo {
         priorityQueue.add(user11);
 
 
+        Collections.sort(priorityQueue, new CustomComparator());
 
 
     }
