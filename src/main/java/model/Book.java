@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Book implements Serializable {
+public class Book<T> implements Serializable {
     private String title, author, bookCode;
     private int quantity;
 

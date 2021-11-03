@@ -12,8 +12,8 @@ public class Teacher extends User implements BookLender {
         super();
     }
 
-    public Teacher(String fName, String lName, List<Book> borrowedBookList) {
-        super(fName, lName, borrowedBookList);
+    public Teacher(String fName, String lName) {
+        super(fName, lName);
         this.setRole(UserType.TEACHER);
     }
 

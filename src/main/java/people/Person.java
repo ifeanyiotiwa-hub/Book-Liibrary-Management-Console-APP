@@ -5,7 +5,7 @@ import libusertype.UserType;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Person implements Comparator<Person> {
+public abstract class Person implements Comparator<Person> {
     private final String fName;
     private final String lName;
     private static int pops = 0;

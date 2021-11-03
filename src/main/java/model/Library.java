@@ -8,43 +8,37 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-public class Library implements Serializable {
+public class Library<Book> implements Serializable {
 
-    private List<Book> bookShelf;
+    private static List<String> bookShelf;
 
 
     public Library() {
-        this.bookShelf = new ArrayList<Book>();
+        this.bookShelf = new ArrayList<>();
     }
 
-    public Library(List<Book> bookShelf) {
+    public Library(List<String> bookShelf) {
         this.bookShelf = bookShelf;
     }
 
     public void addBook(Book book) {
-        bookShelf.add(book);
+        bookShelf.add(String.valueOf(book));
     }
 
     public void removeBook(Book book) {
-        if(getBookShelf().contains(book)){
-            getBookShelf().remove(book);
+        if(Librarian.getBookShelf().contains(book)){
+            Librarian.getBookShelf().remove(book);
         }else{
             throw new IllegalStateException("Book Not Found");
         }
 
     }
 
-    public List<Book> getBookShelf() {
-        if(bookShelf.isEmpty())
-            throw new IllegalStateException("No Book in Shelf");
-        else
-            return bookShelf;
-    }
 
     @Override
     public String toString() {
         String bookList = "\n";
-        Iterator<Book> bookIterator = getBookShelf().iterator();
+        Iterator<Book> bookIterator = Librarian.getBookShelf().iterator();
         for(;bookIterator.hasNext();){
             Book b = bookIterator.next();
             bookList += b.toString();
@@ -67,8 +61,12 @@ public class Library implements Serializable {
             this.lName = lName;
         }
 
-        public static List<Book> getBookShelf() {
-            return getBookShelf();
+        public static List getBookShelf() {
+            if(bookShelf.isEmpty())
+                throw new IllegalStateException("No Book in Shelf");
+            else
+                return bookShelf;
         }
+
     }
 }
