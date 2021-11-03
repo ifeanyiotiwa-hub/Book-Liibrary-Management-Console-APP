@@ -2,18 +2,20 @@ package datastruct;
 
 import datastructservices.Queueable;
 import people.Person;
-import people.User;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Queue;
 
-public class ListQueue<T> implements Queueable<T> {
-        private int size;
-        private List<T> data;
+public class ListPriorityQueue<T> implements Queueable<T>, Comparator<Person> {
+    private int size;
+    private List<T> data;
 
-    public ListQueue() {
+    public List<T> getData() {
+        return data;
+    }
+
+    public ListPriorityQueue() {
         this.size = size;
         this.data = new ArrayList<T>();
     }
@@ -62,15 +64,6 @@ public class ListQueue<T> implements Queueable<T> {
     }
 
     @Override
-    public String toString() {
-        System.out.println("\nCurrent Normal Queue\n" +
-                "List: \n");
-        for(int i = 0; i < data.size(); i++)
-            System.out.println(data.get(i).toString());
-        return "\n";
-    }
-
-    @Override
     public T remove() {
         if(data.isEmpty()){
             throw new IndexOutOfBoundsException("Cannot remove element because queue is empty");
@@ -80,8 +73,23 @@ public class ListQueue<T> implements Queueable<T> {
     }
 
     @Override
-    public List<T> getData() {
-        return data;
+    public String toString() {
+        System.out.println("\nCurrent Priority Queue\n" +
+                "List: \n");
+        for(int i = 0; i < data.size(); i++)
+            System.out.println(data.get(i).toString());
+        return "\n";
     }
-
+    @Override
+    public int compare(Person o1, Person o2) {
+        if(o1.getRole().getQueuePrecedence() > o2.getRole().getQueuePrecedence())
+            return 1;
+        else if(o1.getRole().getQueuePrecedence() == o2.getRole().getQueuePrecedence())
+            return 0;
+        else if(o1.getRole().getQueuePrecedence() < o2.getRole().getQueuePrecedence())
+            return -1;
+        else
+            throw new IllegalStateException("Not a valid User Type");
+    }
 }
+

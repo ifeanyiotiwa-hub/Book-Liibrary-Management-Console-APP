@@ -1,3 +1,4 @@
+import datastruct.ListPriorityQueue;
 import datastruct.ListQueue;
 import datastructservices.Queueable;
 import model.Book;
@@ -5,10 +6,7 @@ import model.Library;
 import people.*;
 
 import java.io.*;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class LibrarySystemDemo {
     private static String filename = "resources/bookFile.txt";
@@ -16,6 +14,7 @@ public class LibrarySystemDemo {
     private static  Scanner scan = new Scanner(System.in);
     private static boolean isRunning = true;
     private static Queueable<Person> normalqueue = new ListQueue<>();
+    private static Queue<Person> priorityQueue = new PriorityQueue<>();
 
 
     public static void main(String[] args) {
@@ -29,9 +28,30 @@ public class LibrarySystemDemo {
 
         System.out.println("List of user that requested for \n\n" + Library.Librarian.getBookShelf().get(0));
         System.out.println("========================================================");
+        System.out.println("\t\t\tNORMAL QUEUE IMPLEMENTATION");
         System.out.println("\nBook would be given in this order For Normal Queue\n");
         System.out.println("========================================================");
         System.out.println(normalqueue.toString());
+
+
+        System.out.println("List of user that requested for \n\n" + Library.Librarian.getBookShelf().get(3));
+        System.out.println("========================================================");
+        System.out.println("\t\t\tPRIORITY QUEUE IMPLEMENTATION");
+        System.out.println("\nBook would be given in this order For Normal Queue\n");
+        System.out.println("========================================================");
+
+        Collections.sort(Arrays.asList(priorityQueue.toArray()), (Person o1, Person o2) ->
+                if(o1.getRole().getQueuePrecedence() > o2.getRole().getQueuePrecedence())
+                    return 1;
+                else if(o1.getRole().getQueuePrecedence() == o2.getRole().getQueuePrecedence())
+                    return 0;
+                else if(o1.getRole().getQueuePrecedence() < o2.getRole().getQueuePrecedence())
+                    return -1;
+                else
+                    throw new IllegalStateException("Not a valid User Type");
+
+        );
+        System.out.println(priorityQueue.toString());
 
     }
 
