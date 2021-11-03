@@ -42,8 +42,8 @@ public class LibrarySystemDemo {
         System.out.println("\nBook would be given in this order For Priority Queue\n");
         System.out.println("========================================================");
 
-//        List<User> l = new ArrayList<User>((Collection<? extends User>) priorityQueue);
-//        System.out.println(l);
+        printList(List<Person> list);
+        System.out.println(priorityQueue.toString());
 
     }
 
