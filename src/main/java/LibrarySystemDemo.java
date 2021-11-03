@@ -43,7 +43,6 @@ public class LibrarySystemDemo {
         System.out.println("========================================================");
 
         printList();
-        System.out.println(priorityQueue.toString());
 
     }
 
