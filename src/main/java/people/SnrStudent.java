@@ -4,7 +4,6 @@ import libusertype.UserType;
 import model.Book;
 import model.Library;
 import services.BookLender;
-import services.User;
 
 import java.util.List;
 

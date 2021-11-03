@@ -1,4 +1,4 @@
-package services;
+package people;
 
 import model.Book;
 import people.Person;

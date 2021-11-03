@@ -10,6 +10,7 @@ public class Person implements Comparator<Person> {
     private final String lName;
     private static int pops = 0;
     private final int creationNo;
+    private int queuePrecedence;
     private UserType role;
 
 
@@ -41,6 +42,20 @@ public class Person implements Comparator<Person> {
         this.role = role;
     }
 
+
+    public int getQueuePrecedence() {
+        return queuePrecedence;
+    }
+
+    public void setQueuePrecedence(int queuePrecedence) {
+        if(this.getRole() == UserType.TEACHER)
+            this.queuePrecedence = UserType.TEACHER.getQueuePrecedence();
+        else if(this.getRole() == UserType.SNR_STUDENT)
+            this.queuePrecedence = UserType.SNR_STUDENT.getQueuePrecedence();
+        else
+            this.queuePrecedence = UserType.JNR_STUDENT.getQueuePrecedence();
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(fName, lName, creationNo);
@@ -56,6 +71,5 @@ public class Person implements Comparator<Person> {
             return -1;
         else
             throw new IllegalStateException("Not a valid User Type");
-
     }
 }
