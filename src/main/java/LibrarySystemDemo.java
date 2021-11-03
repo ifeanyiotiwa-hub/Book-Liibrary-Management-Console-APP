@@ -49,6 +49,7 @@ public class LibrarySystemDemo {
     private static void printList() {
         for(int i = 0; i < priorityQueue.size(); i++)
             System.out.println(priorityQueue.get(i).toString());
+        System.out.println();
     }
 
     private static void loadLibraryUsers() {
