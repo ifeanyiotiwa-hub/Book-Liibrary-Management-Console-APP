@@ -14,9 +14,13 @@
 
 **The books are given by the Librarian on a first come first serve basis, whether you are a teacher, a junior or a senior student.**
 
+---
+
 ## Class UML DIAGRAM
 
 ![Project Class UML DIAGRAM](ClassDiagram.png)
+
+---
 
 **Author: Ifeanyichukwu Otiwa**
 [Linkdin Profile](https://www.linkedin.com/in/ifeanyichukwu-otiwa-winson/)
