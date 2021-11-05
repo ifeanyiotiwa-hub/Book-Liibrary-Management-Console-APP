@@ -1,0 +1,45 @@
+@startuml
+abstract class people.Person {
+- String fName
+- String lName
+- {static} int pops
+- int creationNo
+- int queuePrecedence
+- UserType role
++ String getName()
++ String toString()
++ UserType getRole()
++ void setRole(UserType)
++ int getQueuePrecedence()
++ void setQueuePrecedence(int)
++ int hashCode()
++ int compare(Person,Person)
+}
+class people.SnrStudent {
++ Book returnBook(Book)
++ void borrowBook(Book)
+}
+class people.JnrStudent {
++ void borrowBook(Book)
+}
+class people.User {
+~ List<Book> borrowedBookList
++ List<Book> getBorrowedBookList()
++ void borrowBook(Book)
++ Book returnBook(Book)
+}
+class people.Teacher {
++ Book returnBook(Book)
++ void borrowBook(Book)
+}
+
+
+java.util.Comparator <|.. people.Person
+services.BookLender <|.. people.SnrStudent
+people.User <|-- people.SnrStudent
+people.User <|-- people.JnrStudent
+services.BookLender <|.. people.User
+people.Person <|-- people.User
+services.BookLender <|.. people.Teacher
+people.User <|-- people.Teacher
+@enduml

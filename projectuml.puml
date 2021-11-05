@@ -1,0 +1,133 @@
+@startuml
+abstract class people.Person {
+- String fName
+- String lName
+- {static} int pops
+- int creationNo
+- int queuePrecedence
+- UserType role
++ String getName()
++ String toString()
++ UserType getRole()
++ void setRole(UserType)
++ int getQueuePrecedence()
++ void setQueuePrecedence(int)
++ int hashCode()
++ int compare(Person,Person)
+}
+class model.Book {
+- String title
+- int quantity
++ void setQuantity(int)
++ String getTitle()
++ String getAuthor()
++ String getBookCode()
++ int getQuantity()
++ boolean equals(Object)
++ int hashCode()
++ String toString()
+}
+class people.SnrStudent {
++ Book returnBook(Book)
++ void borrowBook(Book)
+}
+class people.User {
+~ List<Book> borrowedBookList
++ List<Book> getBorrowedBookList()
++ void borrowBook(Book)
++ Book returnBook(Book)
+}
+class datastruct.ListQueue {
+- int size
+- List<T> data
++ int size()
++ void add(T)
++ T element()
++ boolean offer(T)
++ T peek()
++ T poll()
++ String toString()
++ T remove()
++ List<T> getData()
+}
+class people.Teacher {
++ Book returnBook(Book)
++ void borrowBook(Book)
+}
+class datastruct.ListPriorityQueue {
+- int size
+- List<T> data
++ List<T> getData()
++ int size()
++ void add(T)
++ T element()
++ boolean offer(T)
++ T peek()
++ T poll()
++ T remove()
++ String toString()
++ int compare(Person,Person)
+}
+interface datastructservices.Queueable {
+~ int size()
+~ void add(T)
+~ T element()
+~ boolean offer(T)
+~ T peek()
+~ T poll()
+~ T remove()
+~ List<T> getData()
+}
+class services.CustomComparator {
++ int compare(Person,Person)
+}
+class people.JnrStudent {
++ void borrowBook(Book)
+}
+interface services.BookLender {
+~ void borrowBook(Book)
+~ Book returnBook(Book)
+}
+class model.Library {
+- {static} List<String> bookShelf
++ void addBook(Book)
++ void removeBook(Book)
++ String toString()
+}
+class model.Library.Librarian {
+- String fName
+- String lName
++ {static} List getBookShelf()
+}
+class LibrarySystemDemo {
+- {static} String filename
+- {static} Library libSystem
+- {static} Scanner scan
+- {static} boolean isRunning
+- {static} Queueable<Person> normalqueue
+- {static} ArrayList<Person> priorityQueue
++ {static} void main(String[])
+- {static} void printList()
+- {static} void loadLibraryUsers()
+- {static} void printBookShelf()
+- {static} void loadScript()
+}
+
+
+java.util.Comparator <|.. people.Person
+java.io.Serializable <|.. model.Book
+services.BookLender <|.. people.SnrStudent
+people.User <|-- people.SnrStudent
+services.BookLender <|.. people.User
+people.Person <|-- people.User
+datastructservices.Queueable <|.. datastruct.ListQueue
+services.BookLender <|.. people.Teacher
+people.User <|-- people.Teacher
+datastructservices.Queueable <|.. datastruct.ListPriorityQueue
+java.util.Comparator <|.. datastruct.ListPriorityQueue
+java.util.Comparator <|.. services.CustomComparator
+people.User <|-- people.JnrStudent
+java.io.Serializable <|.. model.Library
+model.Library +.. model.Library.Librarian
+model.Person <|-- model.Library.Librarian
+@enduml

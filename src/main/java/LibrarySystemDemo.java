@@ -19,10 +19,14 @@ public class LibrarySystemDemo {
 
 
     public static void main(String[] args) {
-        System.out.println("Loading Books into Library BookShelf");
+        System.out.println("Starting Library Demo");
         System.out.println("====================================");
-
         loadScript();
+
+        System.out.println();
+        System.out.println("====================================");
+        System.out.println("List of books in Library");
+
         printBookShelf();
 
         loadLibraryUsers();
